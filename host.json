@@ -13,16 +13,19 @@
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
-        "http": {},
+        "http": {
+            "routePrefix": "api",
+            "dynamicThrottlesEnabled": false
+        },
         "queues": {},
         "sendGrid": {},
-        "serviceBus": {}
+        "serviceBus": {}        
     },
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
         "version": "[2.*, 3.0.0)"
     },
-    "functions": [ "QueueProcessor", "GitHubWebHook" ],
+    "functions": [ "HttpTrigger", "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
     "healthMonitor": {
         "enabled": true,
@@ -30,7 +33,7 @@
         "healthCheckWindow": "00:02:00",
         "healthCheckThreshold": 6,
         "counterThreshold": 0.80
-    },
+    },    
     "logging": {
         "fileLoggingMode": "debugOnly",
         "logLevel": {
